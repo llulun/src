@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "QZone Praise Automator",
+  "version": "3.0.0",
+  "description": "QQ空间自动点赞工具（浏览器扩展版）",
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "permissions": ["storage", "notifications", "activeTab", "scripting"],
+  "host_permissions": ["*://*.qzone.qq.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.qzone.qq.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/index.html",
+    "default_icon": "assets/icon16.png"
+  }
+}
